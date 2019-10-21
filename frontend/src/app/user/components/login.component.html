@@ -1,0 +1,23 @@
+<mat-card>
+
+    <mat-card-title>
+        <a [routerLink]="['/login']">
+            <h1>Login</h1>
+        </a>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+        Please select a login method
+    </mat-card-subtitle>
+
+    <mat-card-content>
+
+        <a href="{{ environment.backendUrl +  '/oauth2/authorize/google?redirect_uri=' + environment.backendUrl + '/oauth2/redirect' }}"
+           class="button fancy-button">Login with Google</a>
+
+        <a href="{{ environment.backendUrl + '/oauth2/authorize/github?redirect_uri' + environment.backendUrl + '/oauth2/redirect'}}"
+           class="button fancy-button">Login with Github</a>
+
+    </mat-card-content>
+
+</mat-card>

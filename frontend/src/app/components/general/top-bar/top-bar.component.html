@@ -1,0 +1,16 @@
+
+  <mat-toolbar-row>
+    <span class="fill-remaining-space">
+      {{ titleService.getTitle() }}
+    </span>
+    <span>
+    <a *ngIf="!userService.isLogged()" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">perm_identity</i>login</a>
+
+    <a *ngIf="userService.isLogged()" (click)="logout()" class="button fancy-button"><i class="material-icons">exit_to_app</i>logout</a>
+    </span>
+
+  </mat-toolbar-row>
+
+
+
+

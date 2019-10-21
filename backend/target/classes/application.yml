@@ -1,0 +1,46 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost}
+      database: ${MONGODB_DB:xbroker}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
+            client-secret: tWZKVLxaD_ARWsriiiUFYoIk
+            redirect-uri-template: "{baseUrl}/oauth2/callback/{registrationId}"
+            client-name: Google User
+            provider: google
+            scope:
+              - email
+              - profile
+          facebook:
+            client-id: 121189305185277
+            client-secret: 42ffe5aa7379e8326387e0fe16f34132
+            redirect-uri-template: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - public_profile
+            github:
+              client-id: d3e47fc2ddd966fa4352
+              client-secret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+              redirect-uri-template: "{baseUrl}/oauth2/callback/{registrationId}"
+              scope:
+                - user:email
+                - read:user
+
+app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:8080/
+      - myandroid://oauth2/redirect
+      - myios://oauth2/redirect
+
+logging.level.root: WARN
+# logging.level.org.springframework.web.servlet.mvc.method.annotation: DEBUG.
