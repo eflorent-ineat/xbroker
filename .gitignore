@@ -24,5 +24,6 @@
 /nbdist/
 /.nb-gradle/
 frontendOLD
-
+frontend/node_modules
+backend/target
 data
