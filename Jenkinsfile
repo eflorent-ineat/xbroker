@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying....'
                 // sh 'ssh user@server rm -rf /var/www/temp_deploy/dist/'
                 // sh 'ssh user@server mkdir -p /var/www/temp_deploy'
                 // sh 'scp -r dist user@server:/var/www/temp_deploy/dist/'
