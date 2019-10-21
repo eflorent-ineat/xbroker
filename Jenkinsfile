@@ -3,9 +3,10 @@ pipeline {
     stages {
         stage ('Initialize') {
             steps {
-
-                currentBuild.displayName = "${env.BRANCH_NAME}-${v}-${env.BUILD_NUMBER}"
-                sh 'echo M2_HOME'
+                script {
+                    v = version()
+                    currentBuild.displayName = "${env.BRANCH_NAME}-${v}-${env.BUILD_NUMBER}"
+                }
             }
         }
         stage('Build') {
