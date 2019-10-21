@@ -27,3 +27,5 @@ frontendOLD
 frontend/node_modules
 backend/target
 data
+backend/src/main/resources/public/
+frontend/dist

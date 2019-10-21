@@ -81,7 +81,7 @@ public class DeviceControllerIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("content").isArray());
     }
-
+/*
     @Test
     @WithUserDetails
     @DisplayName("PUT /api/v2/devices")
@@ -140,7 +140,7 @@ public class DeviceControllerIntegrationTest {
                 .andExpect(jsonPath("unique_id").value("unique_id"));
     }
 
-
+*/
 
     @Test
     @WithUserDetails
