@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 public class TextUtil {
 
-
     private static final Pattern NONLATIN = Pattern.compile("[^\\w-]");
     private static final Pattern WHITESPACE = Pattern.compile("[\\s]");
 
