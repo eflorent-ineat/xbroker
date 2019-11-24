@@ -6,7 +6,7 @@ Demo app maybe an IoT platform baby featuring:
 - Mongo Repository
 - Artemis AMQP
 - spring-security, spring-security-oauth2, spring-security-test, 
-- Angular7
+- Angular 8.2.11
 - RxJS 6.5.3, NgRx
 - AngularMaterial,
 
