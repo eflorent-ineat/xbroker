@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
                 ) { }
 
   ngOnInit() {
-    this.titleService.setTitle(this.componentTitle)
+        this.titleService.setTitle(this.componentTitle)
         const currentURL = window.location.href;
-        // conveniency method for redirecting to developement front after extenal SSO
+        // workaround for redirecting to developement front after extenal SSO
         // reason is that remote SSO authority register the backend and will not accept redirect frontend
         // registering frontend would not have worked thus...
         if (currentURL == 'http://localhost:8080/') {
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         } else {
                 const token = this.cookieService.get(TOKEN)
                 if (token) {
-                    this.store.dispatch({ type: UserActions.ACTION_TOKEN_SUCCESS });
+                    this.store.dispatch({ type: UserActions.ACTION_TOKEN_SUCCESS, credentials: {token}  });
                 }
         }
     }

@@ -1,7 +1,7 @@
 
   <mat-toolbar-row>
     <span class="fill-remaining-space">
-      {{ titleService.getTitle() }}
+      service: {{ titleService.getTitle() }}
     </span>
     <span>
     <a *ngIf="!userService.isLogged()" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">perm_identity</i>login</a>

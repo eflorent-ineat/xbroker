@@ -20,7 +20,9 @@ import { LeftMenuComponent } from './components/general/left-menu/left-menu.comp
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user/user.effects';
 import { Store, StoreModule } from '@ngrx/store';
-
+import { reducer as userReducer } from './user/user.reducers';
+import {  httpInterceptorProviders } from './http-interceptors';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -33,7 +35,15 @@ import { Store, StoreModule } from '@ngrx/store';
     MaterialModule,
     FlexLayoutModule,
     LayoutModule,
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects]),
+    // StoreModule.forRoot(userReducer]),
+    StoreModule.forRoot({user: userReducer}),
+       // Instrumentation must be imported after importing StoreModule (config is optional)
+       StoreDevtoolsModule.instrument({
+         maxAge: 25, // Retains last 25 states
+         //logOnly: environment.production, // Restrict extension to log-only mode
+       })
+
   ],
   declarations: [
     AppComponent,
@@ -46,7 +56,8 @@ import { Store, StoreModule } from '@ngrx/store';
     providers: [
       Title,
       CookieService,
-      AuthGuard
+      AuthGuard,
+      httpInterceptorProviders
     ],
   bootstrap: [ AppComponent ]
 })

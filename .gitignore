@@ -28,6 +28,7 @@ frontend/node_modules
 backend/target
 data
 backend/src/main/resources/public/
-./frontend/dist/
-./frontend/target/
+frontend/dist/
+frontend/target/
+frontend/node/
 .DS_Store

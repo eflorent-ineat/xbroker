@@ -7,7 +7,9 @@ import { environment } from '../../environments/environment';
 import { User } from './user.model';
 import * as UserActions from './user.actions';
 const TOKEN = 'TOKEN';
+const USER = 'USER';
 const REFRESH_TOKEN = 'REFRESH_TOKEN';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +27,20 @@ export class UserService {
   }
 
   getUserInfo(token: string) {
-    this.setToken(token);
-    return this.http.get("/api/v2/userinfo");
+    localStorage.setItem(TOKEN, token);
+    console.log("getUserInfo!");
+    return this.http.get(`${environment.backendUrl}/api/v2/userinfo`).pipe(catchError(this.handleError));
   }
+
+  setUserInfo(user) {
+    console.log(user);
+    return of({type:"NO_OP"});
+  }
+
 
   getToken() {
     return localStorage.getItem(TOKEN);
   }
-
 
   isLogged() {
     return localStorage.getItem(TOKEN) != null;
@@ -50,6 +58,12 @@ export class UserService {
         alert(error.error.message);
         return of(false);
       }));
-    }
+    };
+
+   handleError(error: HttpErrorResponse) {
+    console.log(error);
+    return throwError(error);
+   }
+
 }
 

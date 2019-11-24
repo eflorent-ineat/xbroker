@@ -21,11 +21,22 @@ export class UserEffects {
       ofType(UserActions.tokenSuccess),
         exhaustMap(action =>
         this.userService.getUserInfo(action.credentials.token).pipe(
-          map(user => UserActions.loginSuccess({ user: <User>user })),
+          map(user => UserActions.loginSuccess({ user } )),
           catchError(error => of(UserActions.loginFailure({ error })))
         )
       )
     )
   );
+
+  recordUser$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(UserActions.loginSuccess),
+          exhaustMap(action => this.userService.setUserInfo(action)
+          )
+        )
+
+    );
+
+
 
 }

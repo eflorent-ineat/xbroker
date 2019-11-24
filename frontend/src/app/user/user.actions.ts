@@ -14,9 +14,7 @@ export const tokenSuccess = createAction(
     props<{ credentials: Credentials}>()
 );
 
-export const loginSuccess = createAction(ACTION_LOGIN_SUCCESS,
-props<{ user: User }>()
-);
+export const loginSuccess = createAction(ACTION_LOGIN_SUCCESS, props<{ user: User }>());
 
 export const loginFailure = createAction(ACTION_LOGIN_FAILURE,  props<{ error: any }>());
 
