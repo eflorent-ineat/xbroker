@@ -1,3 +1,16 @@
+# about
+
+Demo app maybe an IoT platform baby featuring:
+
+- Springboot 2.2.1
+- Mongo Repository
+- Artemis AMQP
+- spring-security, spring-security-oauth2, spring-security-test, 
+- Angular7
+- RxJS 6.5.3, NgRx
+- AngularMaterial,
+
+
 # run
 
 ```
